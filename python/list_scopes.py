@@ -24,8 +24,11 @@ logger = logging.getLogger('list_scopes')
 
 
 def main():
-    scopes_url = 'https://pasta.lternet.edu/package/eml'
-    r = requests.get(scopes_url)
+    base_url = 'https://pasta.lternet.edu'
+    service = '/package/eml'
+
+
+    r = requests.get(base_url + service)
 
     scopes = r.text.split('/n')
     for scope in scopes:
