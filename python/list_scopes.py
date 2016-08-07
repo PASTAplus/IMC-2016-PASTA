@@ -13,24 +13,17 @@
 """
 
 import requests
-import logging
-
-logging.basicConfig(
-    format='%(asctime)s %(levelname)s (%(name)s): %(message)s',
-    datefmt='%Y-%m-%d% H:%M:%S%z')
-logging.getLogger('').setLevel(logging.WARN)
-logger = logging.getLogger('list_scopes')
+import sys
 
 
+def main(argv):
 
-def main():
-    base_url = 'https://pasta.lternet.edu'
+    base_url = argv[0]
     service = '/package/eml'
-
 
     r = requests.get(base_url + service)
 
-    scopes = r.text.split('/n')
+    scopes = r.text.split('\n')
     for scope in scopes:
         print('{0}'.format(scope))
 
@@ -38,4 +31,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    main(sys.argv[1:])
