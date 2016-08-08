@@ -14,7 +14,6 @@
 
 import requests
 import sys
-import getopt
 
 
 def main(argv):
@@ -26,6 +25,7 @@ def main(argv):
 
     r = requests.get(path)
 
+    print('Response: {0}'.format(r.status_code))
     headers = r.headers
     for header in headers:
         print('{0}: {1}'.format(header, headers[header]))
