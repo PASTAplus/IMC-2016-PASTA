@@ -20,12 +20,12 @@ import sys
 def main(argv):
 
     base_url = argv[0]
-    creds = argv[1].encode('utf-8')
+    creds = argv[1]
     service = '/package'
     path = base_url + service
 
-    b64_creds = base64.b64encode(creds)
-    authn_header = {'Authorization': 'Basic ' + b64_creds.decode('utf-8')}
+    b64_creds = base64.b64encode(creds.encode('utf-8')).decode('utf-8')
+    authn_header = {'Authorization': 'Basic ' + b64_creds}
 
     r = requests.get(path, headers=authn_header)
 
@@ -35,9 +35,8 @@ def main(argv):
         print('{0}: {1}'.format(header, headers[header]))
 
     b64_auth_token = headers['Set-Cookie'].lstrip('auth-token=')
-    print(b64_auth_token)
     auth_token = base64.b64decode(b64_auth_token.encode('utf-8')).decode('utf-8')
-    print(auth_token)
+    print('\nAuth-token: {0}\n'.format(auth_token))
 
     auth_token_cookie = dict(auth_token=b64_auth_token)
 
