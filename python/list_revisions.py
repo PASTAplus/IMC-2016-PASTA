@@ -17,11 +17,17 @@ import sys
 
 
 def main(argv):
+
     base_url = argv[0]
     scope_identifier = argv[1]
     service = '/package/eml/'
+    path = base_url + service + scope_identifier.replace('.', '/')
 
-    r = requests.get(base_url + service + scope_identifier.replace('.', '/'))
+    r = requests.get(path)
+
+    headers = r.headers
+    for header in headers:
+        print('{0}: {1}'.format(header, headers[header]))
 
     revisions = r.text.split('\n')
     for revision in revisions:

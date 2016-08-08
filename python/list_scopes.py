@@ -20,8 +20,13 @@ def main(argv):
 
     base_url = argv[0]
     service = '/package/eml'
+    path = base_url + service
 
-    r = requests.get(base_url + service)
+    r = requests.get(path)
+
+    headers = r.headers
+    for header in headers:
+        print('{0}: {1}'.format(header, headers[header]))
 
     scopes = r.text.split('\n')
     for scope in scopes:
