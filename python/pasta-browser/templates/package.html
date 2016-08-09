@@ -1,0 +1,24 @@
+{%  extends 'bootstrap/base.html' %}
+
+{%  block title %}PASTA+{% endblock %}
+
+{% block navbar %}
+    <nav class="navbar navbar-inverse" role="navigation">
+        <div class="container">
+            <a class="navbar-brand" href="/">Home</a>
+        </div>
+    </nav>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h1>PASTA+ Data Repository</h1>
+        <h2>Public Catalog Browser</h2>
+        <h3>Data Package resources for: {{ package_id }}</h3>
+        <ul>
+            {% for resource in resources %}
+                <li><a href="{{ resource }}">{{ resource }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}
