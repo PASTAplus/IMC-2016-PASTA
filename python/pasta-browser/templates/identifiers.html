@@ -12,15 +12,16 @@
 
 {% block content %}
     <div class="container">
-    <h1>PASTA+ Data Repository</h1>
-    <h2>Catalog Browser</h2>
-    <table class="table">
-        {% for identifier in identifiers %}
-            <tr>
-                <td><a href="/eml/{{ scope }}/{{ identifier }}">{{ scope + "."
-                    + identifier }}</a></td>
-            </tr>
-        {% endfor %}
-    </table>
+        <h1>PASTA+ Data Repository</h1>
+        <h2>Public Catalog Browser</h2>
+        <h3>Data Package identifiers for: {{ scope }}</h3>
+        <table class="table">
+            {% for identifier in identifiers %}
+                <tr>
+                    <td><a href="/eml/{{ scope }}/{{ identifier }}">{{ scope + "."
+                        + identifier }}</a></td>
+                </tr>
+            {% endfor %}
+        </table>
     </div>
 {% endblock %}
