@@ -23,8 +23,9 @@ import requests
 
 class Revisions(object):
 
-    def __init__(self, scope=None, identifier=None):
-        revisions_url = 'https://pasta.lternet.edu/package/eml/' + scope + '/' + identifier
+    def __init__(self, base_url= None, scope=None, identifier=None):
+        service = '/package/eml/'
+        revisions_url = base_url + service + scope + '/' + identifier
         self.r = requests.get(revisions_url)
 
     def get_headers(self):

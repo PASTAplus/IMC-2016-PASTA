@@ -23,8 +23,9 @@ import requests
 
 class Identifiers(object):
 
-    def __init__(self, scope=None):
-        identifiers_url = 'https://pasta.lternet.edu/package/eml/' + scope
+    def __init__(self, base_url=None, scope=None):
+        service = '/package/eml/'
+        identifiers_url = base_url + service + scope
         self.r = requests.get(identifiers_url)
 
     def get_headers(self):
