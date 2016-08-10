@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-""":Mod: list_scopes
+""":Mod: list_revisions
 
 :Synopsis:
 
@@ -9,7 +9,7 @@
     servilla
   
 :Created:
-    8/4/16
+    8/6/16
 """
 
 import requests
@@ -19,8 +19,9 @@ import sys
 def main(argv):
 
     base_url = argv[0]
-    service = '/package/eml'
-    path = base_url + service
+    scope_identifier = argv[1]
+    service = '/package/eml/'
+    path = base_url + service + scope_identifier.replace('.', '/')
 
     r = requests.get(path)
 
@@ -29,9 +30,9 @@ def main(argv):
     for header in headers:
         print('{0}: {1}'.format(header, headers[header]))
 
-    scopes = r.text.split('\n')
-    for scope in scopes:
-        print('{0}'.format(scope))
+    revisions = r.text.split('\n')
+    for revision in revisions:
+        print('{0}.{1}'.format(scope_identifier, revision))
 
     return 0
 

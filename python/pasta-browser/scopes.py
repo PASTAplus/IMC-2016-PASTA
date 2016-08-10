@@ -23,8 +23,9 @@ import requests
 
 class Scopes(object):
 
-    def __init__(self):
-        scopes_url = 'https://pasta.lternet.edu/package/eml'
+    def __init__(self, base_url=None):
+        service = '/package/eml/'
+        scopes_url = base_url + service
         self.r = requests.get(scopes_url)
 
 
