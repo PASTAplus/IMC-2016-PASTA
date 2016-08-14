@@ -49,3 +49,6 @@ venv
 
 # JetBrains
 .idea
+
+# Misc
+*.pem
