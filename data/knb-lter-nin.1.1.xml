@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<eml:eml packageId="knb-lter-nin.21.1" scope="system" system="knb"
+<eml:eml packageId="knb-lter-nin.1.1" scope="system" system="knb"
   xmlns:eml="eml://ecoinformatics.org/eml-2.1.0"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="eml://ecoinformatics.org/eml-2.1.0 http://nis.lternet.edu/schemas/eml/eml-2.1.0/eml.xsd">
   <access authSystem="knb" order="allowFirst">
@@ -304,7 +304,7 @@
         </dataFormat>
         <distribution>
           <online>
-            <url function="download">ftp://ftp.lternet.edu/pub/data/NIN/data/LTER.NIN.DWS.csv</url>
+            <url function="download">http://nis.lternet.edu/nis/NIN/data/LTER.NIN.DWS.csv</url>
           </online>
           <access authSystem="knb" order="allowFirst">
             <allow>
